@@ -8,10 +8,10 @@
         body {
             font-family: sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #eee; /* Light text for dark mode */
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0; /* Removed body padding for full width */
+            background-color: #222; /* Dark background */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -20,18 +20,17 @@
         .container {
             max-width: 1400px;
             width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
+            box-sizing: border-box; /* Keep box-sizing for consistency */
         }
 
         h1 {
             text-align: center;
-            color: #2c3e50;
+            color: #fff; /* White heading for dark mode */
         }
 
         p {
             text-align: center;
-            color: #555;
+            color: #ccc; /* Slightly lighter gray text */
             max-width: 80ch;
             margin-left: auto;
             margin-right: auto;
@@ -39,46 +38,57 @@
 
         .doc-links {
             text-align: center;
-            margin-bottom: 40px; /* Spacing before iframes */
+            margin-bottom: 40px;
         }
 
         .doc-links a {
             display: inline-block;
             padding: 10px 20px;
             margin: 0 10px;
-            background-color: #3498db;
-            color: white;
             text-decoration: none;
             border-radius: 5px;
         }
 
+        .doc-links a:nth-child(1) { /* "Woke" Dictionary link */
+            background-color: #00bcd4; /* Cyan for "Woke" */
+            color: white;
+        }
+
+        .doc-links a:nth-child(2) { /* "Right-Wing" Dictionary link */
+            background-color: #ff9800; /* Orange for "Right-Wing" */
+            color: white;
+        }
+
+
         .iframes-container {
-            width: 100%;
+            width: 100%; /* Full width container */
             display: flex;
-            flex-direction: column; /* Stacked by default for smaller screens */
-            gap: 20px; /* Spacing between iframes when stacked */
+            flex-direction: column;
+            gap: 20px;
+            padding: 0; /* Removed container padding */
         }
 
         .iframes-container iframe {
             width: 100%;
-            height: 600px; /* Adjust as needed */
-            border: 1px solid #ccc;
+            height: 800px; /* Increased height for better viewing */
+            border: 1px solid #555; /* Darker border for dark mode */
             box-sizing: border-box;
         }
 
-        @media (min-width: 1200px) { /* Wide screen breakpoint */
+        @media (min-width: 1200px) {
             .iframes-container {
-                flex-direction: row; /* Side-by-side on wide screens */
-                gap: 30px; /* Spacing between side-by-side iframes */
+                flex-direction: row;
+                gap: 0; /* No gap between side-by-side iframes */
             }
 
             .iframes-container iframe {
-                width: 50%; /* Each iframe takes half width */
+                width: 50%;
+                height: 100vh; /* Take up full viewport height */
             }
         }
 
         .iframe-spacing {
-            margin-top: 60px; /* Good amount of spacing above iframes */
+            margin-top: 40px; /* Slightly reduced spacing above iframes */
         }
     </style>
 </head>
@@ -92,7 +102,7 @@
             <a href="redisms.html">The Skeptic's Dictionary of Right-Wing Terms and Tactics</a>
         </div>
 
-        <div class="iframe-spacing"></div> <!-- Spacing -->
+        <div class="iframe-spacing"></div>
 
         <div class="iframes-container">
             <iframe src="wokisms.html" title="Skeptic's Dictionary of Woke Terms"></iframe>
